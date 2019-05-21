@@ -4,16 +4,17 @@
       <router-link to="/">APP NAME</router-link>
     </h1>
     <nav class="app-navigation">
-      <router-link class="app-navigation__link full-width block paddings--xs" :to="{ name: 'about-subject' }">
-        Про Предмет
-      </router-link>
+      <AppSidebarNavigationLink :to="{ name: 'about-subject' }" name="Про Предмет"/>
+      <AppSidebarNavigationLink :to="{ name: 'about-programs' }" name="Про Програми"/>
     </nav>
   </div>
 </template>
 
 <script>
+  import AppSidebarNavigationLink from "./AppSidebarNavigationLink";
   export default {
-    name: "AppSidebar"
+    name: "AppSidebar",
+    components: {AppSidebarNavigationLink}
   }
 </script>
 

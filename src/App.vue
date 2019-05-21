@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import AppSidebar from "./components/AppSidebar";
+  import AppSidebar from "./components/app-sidebar/AppSidebar";
 
   export default {
     name: 'App',
