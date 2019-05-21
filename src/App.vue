@@ -1,7 +1,9 @@
 <template>
   <div class="app">
     <AppSidebar class="app__sidebar"/>
-    <router-view class="app__content paddings-left--sm"/>
+    <transition name="router" mode="out-in">
+      <router-view class="app__content paddings-left--sm"/>
+    </transition>
   </div>
 </template>
 
@@ -28,5 +30,15 @@
   .app__content {
     flex-grow: 1;
     overflow-y: scroll;
+  }
+
+  // Router animations
+
+  .router-enter-active, .router-leave-active {
+    transition: opacity .3s;
+  }
+
+  .router-enter, .router-leave-to {
+    opacity: 0;
   }
 </style>
