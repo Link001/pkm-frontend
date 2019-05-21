@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <AppSidebar class="app__sidebar"/>
-    <router-view class="app__content"/>
+    <router-view class="app__content paddings-left--sm"/>
   </div>
 </template>
 
@@ -17,6 +17,7 @@
 <style lang="scss" scoped>
   .app {
     display: flex;
+    height: 100%;
   }
 
   .app__sidebar {
@@ -26,5 +27,6 @@
 
   .app__content {
     flex-grow: 1;
+    overflow-y: scroll;
   }
 </style>

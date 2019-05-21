@@ -4,7 +4,9 @@
       <router-link to="/">APP NAME</router-link>
     </h1>
     <nav class="app-navigation">
-      <router-link class="app-navigation__link" :to="{ name: 'about-subject' }">Про Предмет</router-link>
+      <router-link class="app-navigation__link full-width block paddings--xs" :to="{ name: 'about-subject' }">
+        Про Предмет
+      </router-link>
     </nav>
   </div>
 </template>
@@ -20,7 +22,12 @@
     background-color: #E9E9E9;
   }
 
-  .app-navigation__link.router-link-exact-active {
-    background-color: #dfdfdf;
+
+
+  .app-navigation__link {
+
+    &.router-link-exact-active {
+      background-color: #dfdfdf;
+    }
   }
 </style>
