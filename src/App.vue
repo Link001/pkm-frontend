@@ -1,10 +1,10 @@
 <template>
   <div class="app">
     <AppSidebar class="app__sidebar"/>
-    <div class="app__content paddings-left--sm">
+    <transition name="router" mode="out-in">
       <router-view class="app__page align--center"/>
       <footer>FOOTER COMPONENT HERE</footer>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -45,5 +45,15 @@
     @media (min-width: 1300px) {
       max-width: 1200px;
     }
+  }
+
+  // Router animations
+
+  .router-enter-active, .router-leave-active {
+    transition: opacity .3s;
+  }
+
+  .router-enter, .router-leave-to {
+    opacity: 0;
   }
 </style>
