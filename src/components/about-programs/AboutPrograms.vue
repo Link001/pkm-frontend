@@ -22,7 +22,7 @@
       </p>
     </AboutProgram>
     <AboutProgram heading="Rational Rose" link="https://itteach.ru/rational-rose/">
-      <img class="image--floating-left" src="../../assets/images/programs/rational.jpg">
+      <img class="image--floating-left" src="../../assets/images/programs/rational.jpg" alt="">
       <p>IBM Rational Rose - популярний засіб візуального моделювання, яке вважається стандартом де-факто серед засобів
         візуального проектування програм. Цей продукт входить до складу пакета IBM Rational Suite і призначений для
         моделювання програмних систем з використанням широкого кола інструментальних засобів і платформ. Інструментальне

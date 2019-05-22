@@ -1,3 +1,13 @@
 .full-width { width: 100% }
 
 .block { display: block }
+
+.size--max-parent {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.align--center {
+  margin-left: auto;
+  margin-right: auto;
+}
