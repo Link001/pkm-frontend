@@ -1,7 +1,7 @@
 <template>
   <main>
     <AboutProgram heading="ERWin Process Modeler" link="https://itteach.ru/bpwin/skachat-erwin">
-      <img class="image--floating-left" src="../../assets/images/programs/erwin.jpg">
+      <img class="image--floating-left" src="../../../assets/images/programs/erwin.jpg">
       <p>CA ERwin Process Modeler - це програмний продукт компанії Computer Associeties BPWIN,
         призначений для моделювання бізнес процесів. Нова версія відрізняється від попередньої в першу чергу це
         сумісності з операційними система Vista, Windows 7. По друге в новій версії даного продукту розробники значно
@@ -22,7 +22,7 @@
       </p>
     </AboutProgram>
     <AboutProgram heading="Rational Rose" link="https://itteach.ru/rational-rose/">
-      <img class="image--floating-left" src="../../assets/images/programs/rational.jpg" alt="">
+      <img class="image--floating-left" src="../../../assets/images/programs/rational.jpg" alt="">
       <p>IBM Rational Rose - популярний засіб візуального моделювання, яке вважається стандартом де-факто серед засобів
         візуального проектування програм. Цей продукт входить до складу пакета IBM Rational Suite і призначений для
         моделювання програмних систем з використанням широкого кола інструментальних засобів і платформ. Інструментальне

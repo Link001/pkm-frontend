@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import AppSidebar from "./components/app-sidebar/AppSidebar";
+  import AppSidebar from "./components/dashboard/app-sidebar/AppSidebar";
 
   export default {
     name: 'App',

@@ -1,6 +1,6 @@
 <template>
   <main>
-    <img class="size--max-parent about-subject__main-image align--center block" src="../assets/images/logomain.jpg" alt="">
+    <img class="size--max-parent about-subject__main-image align--center block" src="../../assets/images/logomain.jpg" alt="">
     <h1>Проектування інформаційних систем</h1>
     <p>Метою курсу є вивчення особливостей і можливостей інформаційних систем, визначення меж використання інформаційних
       систем у різних сферах людської діяльності. Особливу увагу приділено проектуванню прикладних інформаційних систем.

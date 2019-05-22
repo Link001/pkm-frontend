@@ -1,21 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import AboutSubject from './components/AboutSubject';
-import AboutPrograms from "./components/about-programs/AboutPrograms";
+import Login from './components/Login';
+import {dashboardRoutes} from "./components/dashboard/routes";
 
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-      {
-          name: 'about-subject',
-          path: '/about-subject',
-          component: AboutSubject
-      },
-      {
-          path: '/about-programs',
-          component: AboutPrograms,
-          name: 'about-programs'
-      }
-  ]
+    routes: [
+        dashboardRoutes,
+        {
+            path: '/',
+            redirect: { name: 'dashboard' }
+        },
+        {
+            path: '*',
+            redirect: { name: 'dashboard' }
+        },
+        {
+            name: 'login',
+            path: '/login',
+            component: Login
+        }
+    ]
 });
