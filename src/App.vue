@@ -1,10 +1,14 @@
 <template>
   <div class="app">
     <AppSidebar class="app__sidebar"/>
-    <transition name="router" mode="out-in">
-      <router-view class="app__page align--center"/>
+
+    <div class="app__content">
+      <transition name="router" mode="out-in">
+        <router-view class="app__page align--center"/>
+      </transition>
+
       <footer>FOOTER COMPONENT HERE</footer>
-    </transition>
+    </div>
   </div>
 </template>
 

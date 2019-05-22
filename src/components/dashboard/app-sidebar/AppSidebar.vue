@@ -6,6 +6,7 @@
     <nav class="app-navigation">
       <NavigationLink :to="{ name: 'about-subject' }" name="Про Предмет"/>
       <NavigationLink :to="{ name: 'about-programs' }" name="Про Програми"/>
+      <NavigationLink :to="{ name: 'about-programs' }" name="Про Програми"/>
     </nav>
   </div>
 </template>
@@ -19,6 +20,8 @@
 </script>
 
 <style lang="scss" scoped>
+
+
   .app-navigation {
     background-color: #E9E9E9;
   }

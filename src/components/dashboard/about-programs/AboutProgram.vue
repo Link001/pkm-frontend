@@ -1,9 +1,14 @@
 <template>
-  <section>
+  <section class="paddings-bottom--lg">
     <a :href="link" target="_blank">
       <h2>{{heading}}</h2>
     </a>
-    <slot/>
+    <div class="about-program__content">
+      <slot name="image"/>
+      <div class="paddings-left--sm">
+        <slot/>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -23,6 +28,8 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .about-program__content {
+    display: flex;
+  }
 </style>
