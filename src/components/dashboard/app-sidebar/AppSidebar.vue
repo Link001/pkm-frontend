@@ -3,6 +3,7 @@
     <NavigationLink :to="{ name: 'dashboard' }" name="APP NAME"/>
     <NavigationLink :to="{ name: 'about-subject' }" name="Про Предмет"/>
     <NavigationLink :to="{ name: 'about-programs' }" name="Про Програми"/>
+    <NavigationLink :to="{name: 'education-materials'}" name="Лекції та лабораторні роботи"/>
   </nav>
 </template>
 
