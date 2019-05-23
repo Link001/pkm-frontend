@@ -1,5 +1,5 @@
 <template>
-  <mane>
+  <main>
     <h2>Лабораторні роботи</h2>
     <ul>
       <li><a target="_blank"
@@ -10,7 +10,7 @@
         Лабораторна робота №1</a></li>
     </ul>
     <img class="size--max-parent" src="../../assets/images/Screenshot_2.png" alt="">
-  </mane>
+  </main>
 </template>
 
 <script>

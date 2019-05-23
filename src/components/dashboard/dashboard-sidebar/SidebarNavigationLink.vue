@@ -4,7 +4,7 @@
 
 <script>
   export default {
-    name: "AppSidebarNavigationLink",
+    name: "SidebarNavigationLink",
     props: {
       to: {
         type: Object,
