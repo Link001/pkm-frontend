@@ -19,16 +19,13 @@
 </script>
 
 <style lang="scss" scoped>
-  .app-navigation {
-    background-color: #E9E9E9;
-  }
-
-
 
   .app-navigation__link {
+    color: #FFF;
+    text-decoration: none;
 
     &.router-link-exact-active {
-      background-color: #dfdfdf;
+      background-color: rgba(255, 255, 255, .15);
     }
   }
 </style>

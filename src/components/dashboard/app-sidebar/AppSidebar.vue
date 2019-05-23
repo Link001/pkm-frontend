@@ -1,18 +1,14 @@
 <template>
-  <div class="app-sidebar">
-    <h1>
-      <router-link to="/">APP NAME</router-link>
-    </h1>
-    <nav class="app-navigation">
-      <NavigationLink :to="{ name: 'about-subject' }" name="Про Предмет"/>
-      <NavigationLink :to="{ name: 'about-programs' }" name="Про Програми"/>
-      <NavigationLink :to="{ name: 'about-programs' }" name="Про Програми"/>
-    </nav>
-  </div>
+  <nav class="app-navigation">
+    <NavigationLink :to="{ name: 'dashboard' }" name="APP NAME"/>
+    <NavigationLink :to="{ name: 'about-subject' }" name="Про Предмет"/>
+    <NavigationLink :to="{ name: 'about-programs' }" name="Про Програми"/>
+  </nav>
 </template>
 
 <script>
   import NavigationLink from "./NavigationLink";
+
   export default {
     name: "AppSidebar",
     components: {NavigationLink}
@@ -20,18 +16,10 @@
 </script>
 
 <style lang="scss" scoped>
-
-
   .app-navigation {
-    background-color: #E9E9E9;
+    width: 250px;
+    background-color: #202020;
+    box-shadow: 4px 7px 10px rgba(0, 0, 0, .4);
   }
 
-
-
-  .app-navigation__link {
-
-    &.router-link-exact-active {
-      background-color: #dfdfdf;
-    }
-  }
 </style>

@@ -2,7 +2,7 @@
   <div class="app">
     <AppSidebar class="app__sidebar"/>
 
-    <div class="app__content">
+    <div class="app__content paddings-left--sm">
       <transition name="router" mode="out-in">
         <router-view class="app__page align--center"/>
       </transition>
