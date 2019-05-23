@@ -1,0 +1,7 @@
+.router-enter-active, .router-leave-active {
+  transition: opacity .3s;
+}
+
+.router-enter, .router-leave-to {
+  opacity: 0;
+}
