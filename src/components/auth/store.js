@@ -1,5 +1,6 @@
 import { authActions } from "./auth-actions";
 import { Auth } from "../../firebase";
+import {routerActions} from "../../router/router-actions";
 
 const mutations = {
     setUser: "[AUTH] Set User"
@@ -10,7 +11,9 @@ export const authStore = {
 
     actions: {
         [authActions.signIn]({ dispatch }, { email, password }) {
-            Auth.signIn(email, password).then(({user: authUser}) => dispatch(authActions.getUser, authUser))
+            Auth.signIn(email, password)
+                .then(({user: authUser}) => dispatch(authActions.getUser, authUser))
+                .then(() => dispatch(routerActions.toGo, { name: 'dashboard' }));
         },
 
         [authActions.autoSignIn]({ dispatch }) {
@@ -23,6 +26,13 @@ export const authStore = {
 
         [authActions.getUser]({ commit }, authUser) {
             return Auth.fetchUserInformation(authUser).then(user => commit(mutations.setUser, user));
+        },
+
+        [authActions.signOut]({ commit, dispatch }) {
+            return Auth.signOut().then(() => {
+                commit(mutations.setUser, null);
+                dispatch(routerActions.toGo, { name: 'sign-in' });
+            })
         }
     },
 

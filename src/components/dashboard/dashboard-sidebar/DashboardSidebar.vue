@@ -15,14 +15,24 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
     <SidebarNavigationLink :to="{name: 'contact'}" name="КОНТАКТИ"/>
+    <button class="app-navigation__sign-out paddings--xs" type="button" @click="signOut">ВИЙТИ</button>
   </nav>
 </template>
 
 <script>
   import SidebarNavigationLink from "./SidebarNavigationLink";
+  import {authActions} from "../../auth/auth-actions";
+
   export default {
     name: "DashboardSidebar",
-    components: {SidebarNavigationLink}
+
+    components: {SidebarNavigationLink},
+
+    methods: {
+      signOut() {
+        this.$store.dispatch(authActions.signOut);
+      }
+    }
   }
 </script>
 
@@ -35,6 +45,12 @@
 
   .app-navigation__items-group-wrapper {
     box-shadow: none;
+  }
+
+  .app-navigation__sign-out {
+    background: none;
+    border: none;
+    color: #FFF;
   }
 </style>
 

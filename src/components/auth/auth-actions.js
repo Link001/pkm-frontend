@@ -1,5 +1,6 @@
 export const authActions = {
-    signIn: '[AUTH Login]',
+    signIn: '[AUTH SignIn]',
     autoSignIn: '[AUTH] Auto SignIn',
-    getUser: '[AUTH] Get User'
+    getUser: '[AUTH] Get User',
+    signOut: '[AUTH] SignOut'
 };
