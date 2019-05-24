@@ -45,7 +45,16 @@ export class Auth {
             .catch(this.translateMessage.bind(this));
     }
 
-    static fetchUserInformation({ user }) {
+    static autoSignIn() {
+        return new Promise(resolve => {
+            const unsubscribe = auth().onAuthStateChanged(user => {
+                resolve(user);
+                unsubscribe();
+            });
+        });
+    }
+
+    static fetchUserInformation(user) {
         return Database.get(`users/${user.uid}`).then((snapshot) => ({
             uid: user.uid,
             name: snapshot.child('name').val()

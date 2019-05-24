@@ -9,10 +9,20 @@ export const authStore = {
     state: { user: null },
 
     actions: {
-        [authActions.signIn]({ commit }, { email, password }) {
-            Auth.signIn(email, password)
-                .then(Auth.fetchUserInformation)
-                .then(user => commit(mutations.setUser, user));
+        [authActions.signIn]({ dispatch }, { email, password }) {
+            Auth.signIn(email, password).then(({user: authUser}) => dispatch(authActions.getUser, authUser))
+        },
+
+        [authActions.autoSignIn]({ dispatch }) {
+            return Auth.autoSignIn().then(authUser => {
+                if (authUser) {
+                    return dispatch(authActions.getUser, authUser)
+                }
+            })
+        },
+
+        [authActions.getUser]({ commit }, authUser) {
+            return Auth.fetchUserInformation(authUser).then(user => commit(mutations.setUser, user));
         }
     },
 
@@ -23,6 +33,6 @@ export const authStore = {
     },
 
     getters: {
-        isAuthenticated: ({ user }) => !user
+        isAuthenticated: ({ user }) => !!user
     }
 };

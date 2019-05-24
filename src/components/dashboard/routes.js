@@ -3,6 +3,7 @@ import AboutPrograms from './about-programs/AboutPrograms';
 import Dashboard from './Dashboard';
 import EducationMaterials from "./EducationMaterials";
 import Contact from "./Contact";
+import {unAuthGuard} from "./un-auth-guard";
 
 export const dashboardRoutes = {
     path: '/dashboard',
@@ -31,5 +32,6 @@ export const dashboardRoutes = {
             path: 'contact',
             component: Contact
         }
-    ]
+    ],
+    beforeEnter: unAuthGuard
 };
