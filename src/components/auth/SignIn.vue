@@ -11,7 +11,7 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn flat color="black" @click="login">Sign in</v-btn>
+            <v-btn flat color="black" @click="signIn">Sign in</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -44,8 +44,11 @@
     }),
 
     methods: {
-      login() {
-        this.$store.dispatch(authActions.login)
+      signIn() {
+        this.$store.dispatch(authActions.signIn, {
+          email: this.email,
+          password: this.password
+        })
       }
     }
   }

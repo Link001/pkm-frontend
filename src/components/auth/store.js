@@ -1,16 +1,16 @@
-import {authActions} from "./auth-actions";
-import {Auth} from "../../firebase";
+import { authActions } from "./auth-actions";
+import { Auth } from "../../firebase";
 
 const mutations = {
-    setUser: '[AUTH] Set User'
+    setUser: "[AUTH] Set User"
 };
 
 export const authStore = {
     state: { user: null },
 
     actions: {
-        [authActions.login]({ commit }) {
-            Auth.signIn('admin@mail.com', 'admin-admin')
+        [authActions.signIn]({ commit }, { email, password }) {
+            Auth.signIn(email, password)
                 .then(Auth.fetchUserInformation)
                 .then(user => commit(mutations.setUser, user));
         }

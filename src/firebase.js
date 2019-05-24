@@ -35,7 +35,8 @@ export class Database {
 export class Auth {
     static MESSAGES = {
         'auth/user-not-found': "Не знайдено користувача з таким емейлом",
-        "auth/wrong-password": 'Невірний пароль'
+        "auth/wrong-password": 'Невірний пароль',
+        "auth/invalid-email": 'Не вірне форматування E-Mail. Приклад: example@mail.com'
     };
 
     static signIn(email, password) {

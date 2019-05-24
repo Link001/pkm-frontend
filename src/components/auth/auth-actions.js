@@ -1,3 +1,3 @@
 export const authActions = {
-    login: '[AUTH Login]'
+    signIn: '[AUTH Login]'
 };
