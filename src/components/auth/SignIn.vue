@@ -45,10 +45,17 @@
     }),
 
     methods: {
+      validate() {
+        this.$refs.form.validate();
+      },
+
       signIn() {
+        this.validate();
+        if (!this.form.valid) return;
+
         this.$store.dispatch(authActions.signIn, {
-          email: this.email,
-          password: this.password
+          email: this.form.email.value,
+          password: this.form.password.value
         })
       }
     }
