@@ -1,14 +1,15 @@
 <template>
   <main>
-    <form action="">
-
-    </form>
+    <AppFooter/>
   </main>
 </template>
 
 <script>
+  import AppFooter from "./AppFooter";
+
   export default {
-    name: "Login"
+    name: "SignIn",
+    components: {AppFooter}
   }
 </script>
 
