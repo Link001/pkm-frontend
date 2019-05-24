@@ -2,12 +2,12 @@
   <div class="dashboard">
     <DashboardSidebar class="dashboard__sidebar"/>
 
-    <div class="dashboard__content paddings-left--sm">
+    <div class="dashboard__content">
       <transition name="router" mode="out-in">
-        <router-view class="dashboard__page align--center"/>
+        <router-view class="dashboard__page align--center paddings-left--sm"/>
       </transition>
 
-      <AppFooter/>
+      <AppFooter class="dashboard__footer"/>
     </div>
   </div>
 </template>
@@ -35,9 +35,13 @@
   .dashboard__content {
     flex-grow: 1;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   .dashboard__page {
+    flex-grow: 1;
     @media (min-width: 767px) and (max-width: 1000px) {
       max-width: 750px;
     }
@@ -49,5 +53,9 @@
     @media (min-width: 1300px) {
       max-width: 1200px;
     }
+  }
+
+  .dashboard__footer{
+
   }
 </style>

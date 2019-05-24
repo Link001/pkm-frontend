@@ -2,6 +2,7 @@ import AboutSubject from './AboutSubject';
 import AboutPrograms from './about-programs/AboutPrograms';
 import Dashboard from './Dashboard';
 import EducationMaterials from "./EducationMaterials";
+import Contact from "./Contact";
 
 export const dashboardRoutes = {
     path: '/dashboard',
@@ -22,7 +23,13 @@ export const dashboardRoutes = {
         {
             name: 'education-materials',
             path: 'education-materials',
-            component: EducationMaterials
+            component: EducationMaterials,
+        },
+
+        {
+            name: 'contact',
+            path: 'contact',
+            component: Contact
         }
     ]
 };

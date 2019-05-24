@@ -58,4 +58,7 @@
   .about-programs__illustration{
     max-width: 50%;
   }
+  p{
+    text-indent: 25px;
+  }
 </style>
