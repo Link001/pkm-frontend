@@ -6,7 +6,7 @@
           <v-card-text>
           <v-form ref="form" v-model="form.valid">
             <v-text-field v-model="form.email.value" :rules="form.email.rules" label="E-mail" required></v-text-field>
-            <v-text-field v-model="form.password.value" :rules="form.password.rules" label="Пароль" required></v-text-field>
+            <PasswordField v-model="form.password.value" :rules="form.password.rules" label="Пароль" required></PasswordField>
           </v-form>
           </v-card-text>
           <v-card-actions>
@@ -24,11 +24,12 @@
   import AppFooter from "../AppFooter";
   import {authActions} from "./auth-actions";
   import {minLength, required} from "../../validations";
+  import PasswordField from "../base/PasswordField";
 
   export default {
     name: "SignIn",
 
-    components: {AppFooter},
+    components: {PasswordField, AppFooter},
 
     data: () => ({
       form: {

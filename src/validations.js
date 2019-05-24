@@ -5,7 +5,7 @@ export function required(title) {
 export function minLength(title, length) {
     return value => {
         if (value.length < length) {
-            return `Довжина поля ${title} повинна бути гне коротшую ніж ${length} символів`
+            return `Довжина поля ${title} повинна бути не коротшую ніж ${length} символів`
         }
         return false;
     }
