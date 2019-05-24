@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import AppFooter from "./AppFooter";
+  import AppFooter from "../AppFooter";
 
   export default {
     name: "SignIn",

@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import SignIn from './components/SignIn';
 import {dashboardRoutes} from "./components/dashboard/routes";
+import {authRoutes} from "./components/auth/routes";
 
 Vue.use(Router);
 
 export default new Router({
     routes: [
         dashboardRoutes,
+        authRoutes,
         {
             path: '/',
             redirect: { name: 'dashboard' }
@@ -16,10 +17,5 @@ export default new Router({
             path: '*',
             redirect: { name: 'dashboard' }
         },
-        {
-            name: 'sign-in',
-            path: '/sign-in',
-            component: SignIn
-        }
     ]
 });
