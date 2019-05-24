@@ -4,12 +4,11 @@
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
           <v-card-text>
-          <v-form ref="form" v-model="valid">
-            <v-text-field v-model="email" :rules="emailRules" label="E-mail" required/>
-            <v-text-field v-model="password" :rules="passwordRules" label="Password" required/>
+          <v-form ref="form" v-model="form.valid">
+            <v-text-field v-model="form.email.value" :rules="form.email.rules" label="E-mail" required></v-text-field>
+            <v-text-field v-model="form.password.value" :rules="form.password.rules" label="Пароль" required></v-text-field>
           </v-form>
           </v-card-text>
-
           <v-card-actions>
             <v-btn flat color="black" @click="login">Sign in</v-btn>
           </v-card-actions>
@@ -24,6 +23,7 @@
 <script>
   import AppFooter from "../AppFooter";
   import {authActions} from "./auth-actions";
+  import {minLength, required} from "../../validations";
 
   export default {
     name: "SignIn",
@@ -31,16 +31,17 @@
     components: {AppFooter},
 
     data: () => ({
-      valid: true,
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required'
-      ],
-      password: '',
-      passwordRules: [
-        v => !!v || 'Password is required'
-      ],
-      checkbox: false
+      form: {
+        valid: true,
+        email: {
+          value: '',
+          rules: [ required('E-Mail') ]
+        },
+        password: {
+          value: '',
+          rules: [ required('Пароль'), minLength('Пароль', 6) ]
+        }
+      }
     }),
 
     methods: {
