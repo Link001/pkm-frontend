@@ -1,5 +1,6 @@
-import {database, initializeApp} from 'firebase';
+import {database, auth, initializeApp} from 'firebase/app';
 import 'firebase/database';
+import 'firebase/auth';
 
 export function initializeFirebase() {
     initializeApp({
@@ -22,7 +23,39 @@ export class Database {
         database().ref(path).on('value', listener)
     }
 
+    static get(path) {
+        return database().ref(path).once('value');
+    }
+
     static stopListening(path, listener) {
         database().ref(path).off('value', listener);
+    }
+}
+
+export class Auth {
+    static MESSAGES = {
+        'auth/user-not-found': "Не знайдено користувача з таким емейлом",
+        "auth/wrong-password": 'Невірний пароль'
+    };
+
+    static signIn(email, password) {
+        return auth()
+            .signInWithEmailAndPassword(email, password)
+            .catch(this.translateMessage.bind(this));
+    }
+
+    static fetchUserInformation({ user }) {
+        return Database.get(`users/${user.uid}`).then((snapshot) => ({
+            uid: user.uid,
+            name: snapshot.child('name').val()
+        }));
+    }
+
+    static signOut() {
+        return auth().signOut();
+    }
+
+    static translateMessage({code, message}) {
+        throw this.MESSAGES[code] || message;
     }
 }
