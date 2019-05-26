@@ -1,5 +1,5 @@
 import { authActions } from "./auth-actions";
-import { Auth } from "../../firebase";
+import { auth } from "../../firebase";
 import {routerActions} from "../../router/router-actions";
 
 const mutations = {
@@ -11,13 +11,13 @@ export const userStore = {
 
     actions: {
         [authActions.signIn]({ dispatch }, { email, password }) {
-            Auth.signIn(email, password)
+            auth.signIn(email, password)
                 .then(({user: authUser}) => dispatch(authActions.getUser, authUser))
                 .then(() => dispatch(routerActions.toGo, { name: 'dashboard' }));
         },
 
         [authActions.autoSignIn]({ dispatch }) {
-            return Auth.autoSignIn().then(authUser => {
+            return auth.autoSignIn().then(authUser => {
                 if (authUser) {
                     return dispatch(authActions.getUser, authUser)
                 }
@@ -25,11 +25,11 @@ export const userStore = {
         },
 
         [authActions.getUser]({ commit }, authUser) {
-            return Auth.fetchUserInformation(authUser).then(user => commit(mutations.setUser, user));
+            return auth.fetchUserInformation(authUser).then(user => commit(mutations.setUser, user));
         },
 
         [authActions.signOut]({ commit, dispatch }) {
-            return Auth.signOut().then(() => {
+            return auth.signOut().then(() => {
                 commit(mutations.setUser, null);
                 dispatch(routerActions.toGo, { name: 'sign-in' });
             })

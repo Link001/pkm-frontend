@@ -1,15 +1,11 @@
 import Vue from 'vue'
-import './plugins/vuetify'
 import App from './App.vue'
+import './plugins/vuetify'
 import { router } from './router'
-import {initializeFirebase} from "./firebase";
 import { store } from './store'
+import './firebase';
 
 import './styles/index.scss';
-import 'roboto-fontface/css/roboto/roboto-fontface.css'
-import '@mdi/font/css/materialdesignicons.css'
-
-initializeFirebase();
 
 Vue.config.productionTip = false;
 

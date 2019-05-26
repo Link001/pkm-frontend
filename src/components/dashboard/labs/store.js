@@ -1,5 +1,5 @@
 import {labsActions} from "./labs-actions";
-import {Database} from "../../../firebase";
+import {database} from "../../../firebase";
 import {Lab} from "../../../models/lab";
 
 const mutations = {
@@ -13,7 +13,7 @@ export const labsStore = {
 
     actions: {
         [labsActions.fetch]({commit}) {
-            return Database.get('labs')
+            return database.get('labs')
                 .then(snapshot => Lab.fromDatabaseArraySnapshot(snapshot))
                 .then(labs => commit(mutations.set, labs));
         }
