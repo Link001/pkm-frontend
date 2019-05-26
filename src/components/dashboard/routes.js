@@ -4,6 +4,7 @@ import Dashboard from './Dashboard';
 import EducationMaterials from "./EducationMaterials";
 import Contact from "./Contact";
 import {unAuthGuard} from "./un-auth-guard";
+import Educatio from "./Educatio";
 
 export const dashboardRoutes = {
     path: '/dashboard',
@@ -31,6 +32,12 @@ export const dashboardRoutes = {
             name: 'contact',
             path: 'contact',
             component: Contact
+        },
+
+        {
+          name: 'educatio',
+          path: 'educatio',
+          component: Educatio
         }
     ],
     beforeEnter: unAuthGuard

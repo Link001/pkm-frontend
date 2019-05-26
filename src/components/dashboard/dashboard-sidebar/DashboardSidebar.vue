@@ -9,8 +9,8 @@
           <template slot="header">НАВЧАЛЬНІ МАТЕРІАЛИ</template>
 
           <div class="paddings--xs paddings-top--none">
-            <SidebarNavigationLink :to="{name: 'education-materials'}" name="ЛАБОРАТОРНІ РОБОТИ"/>
             <SidebarNavigationLink :to="{name: 'educatio'}" name="ЛЕКЦІЇ"/>
+            <SidebarNavigationLink :to="{name: 'education-materials'}" name="ЛАБОРАТОРНІ РОБОТИ"/>
           </div>
         </v-expansion-panel-content>
       </v-expansion-panel>

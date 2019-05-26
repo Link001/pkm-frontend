@@ -2,10 +2,11 @@
   <main>
     <h2>Лабораторні роботи</h2>
     <br>
+    <div class="education-material">
     <ul>
       <li><a target="_blank" title="ЛР №1. Створення контекстної діаграми."
              href="https://firebasestorage.googleapis.com/v0/b/pkmapp-dcd0c.appspot.com/o/%D1%81%D1%85%D0%B5%D0%BC%D0%B8.docx?alt=media&token=ab6f6b59-33ee-45d3-a89d-5cbe1e221b73">
-        Лабораторна робота №1</a></li>
+        Лабораторна робота №1</a> </li>
       <br>
       <li><a target="_blank" title="ЛР №2. Створення діаграм декомпозиції."
              href="https://firebasestorage.googleapis.com/v0/b/pkmapp-dcd0c.appspot.com/o/%D1%81%D1%85%D0%B5%D0%BC%D0%B8.docx?alt=media&token=ab6f6b59-33ee-45d3-a89d-5cbe1e221b73">
@@ -51,6 +52,7 @@
              href="https://firebasestorage.googleapis.com/v0/b/pkmapp-dcd0c.appspot.com/o/%D1%81%D1%85%D0%B5%D0%BC%D0%B8.docx?alt=media&token=ab6f6b59-33ee-45d3-a89d-5cbe1e221b73">
         Лабораторна робота №12</a></li>
     </ul>
+    </div>
     <br>
     <img class="size--max-parent" src="../../assets/images/Screenshot_2.png" alt="">
   </main>
@@ -62,6 +64,13 @@
   }
 </script>
 
-<style scoped>
+<style  lang="scss" scoped>
+ .education-material{
+   color: #FFF;
+   text-decoration: none;
 
+   &.router-link-exact-active {
+     background-color: rgba(255, 255, 255, .15);
+   }
+ }
 </style>
