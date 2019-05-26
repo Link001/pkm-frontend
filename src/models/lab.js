@@ -1,4 +1,4 @@
-import {firebaseReferenceToArray} from "../helpers";
+import {databaseSnapshotToArray} from "../helpers";
 
 export class Lab {
     constructor({ id, name, taskDocumentUrl }) {
@@ -16,6 +16,6 @@ export class Lab {
     }
 
     static fromDatabaseArraySnapshot(snapshot) {
-        return firebaseReferenceToArray(snapshot).map(lab => Lab.fromDatabaseSnapshot(lab));
+        return databaseSnapshotToArray(snapshot).map(lab => Lab.fromDatabaseSnapshot(lab));
     }
 }

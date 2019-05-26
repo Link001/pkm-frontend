@@ -4,10 +4,9 @@ import Dashboard from './Dashboard';
 import Contact from "./Contact";
 import Labs from './labs/labs-list/Labs';
 import Lectures from './Lectures';
-import LabsReview from './labs/LabsReview';
 import {unAuthGuard} from "./guard/un-auth-guard";
-import {notTeacherGuard} from "./guard/not-teacher-guard";
 import {loadLabsResolver} from "./labs/load-labs-resolver";
+import {labsReviewRoutes} from "./labs/labs-review/routes";
 
 export const dashboardRoutes = {
     path: '/dashboard',
@@ -36,12 +35,7 @@ export const dashboardRoutes = {
             path: 'lectures',
             component: Lectures
         },
-        {
-            name: 'labs-review',
-            path: 'teacher/labs-review',
-            component: LabsReview,
-            beforeEnter: notTeacherGuard
-        },
+        labsReviewRoutes,
         {
             name: 'contact',
             path: 'contact',

@@ -4,7 +4,7 @@
 
     <div class="dashboard__content">
       <transition name="router" mode="out-in">
-        <router-view class="dashboard__page align--center paddings-left--sm"/>
+        <router-view class="dashboard__page align--center paddings-left--sm paddings-right--sm full-width"/>
       </transition>
 
       <AppFooter class="dashboard__footer"/>
@@ -42,16 +42,17 @@
 
   .dashboard__page {
     flex-grow: 1;
+
     @media (min-width: 767px) and (max-width: 1000px) {
-      max-width: 750px;
+      max-width: 500px;
     }
 
     @media (min-width: 1000px) and (max-width: 1300px) {
-      max-width: 900px;
+      max-width: 650px;
     }
 
     @media (min-width: 1300px) {
-      max-width: 1200px;
+      max-width: 950px;
     }
   }
 

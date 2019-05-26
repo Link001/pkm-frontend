@@ -5,8 +5,7 @@ import uk from 'vuetify/es5/locale/uk'
 
 Vue.use(Vuetify, {
     iconfont: 'md',
-    components: {
-    },
+    components: {},
     lang: {
         locales: {uk},
         current: 'uk'

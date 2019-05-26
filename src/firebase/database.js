@@ -16,11 +16,11 @@ export class Database extends FirebaseModule {
         this.database.ref(path).on('value', listener)
     }
 
-    get(path) {
-        return this.database.ref(path).once('value');
-    }
-
     stopListening(path, listener) {
         this.database.ref(path).off('value', listener);
+    }
+
+    get(path) {
+        return this.database.ref(path).once('value');
     }
 }
