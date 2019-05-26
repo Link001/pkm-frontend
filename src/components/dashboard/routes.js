@@ -10,6 +10,7 @@ export const dashboardRoutes = {
     path: '/dashboard',
     name: 'dashboard',
     component: Dashboard,
+    redirect: { name: 'about-subject' },
     children: [
         {
             name: 'about-subject',

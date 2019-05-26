@@ -1,7 +1,6 @@
 <template>
   <nav class="app-navigation">
-    <SidebarNavigationLink :to="{ name: 'dashboard' }" name="ГОЛОВНА"/>
-    <SidebarNavigationLink :to="{ name: 'about-subject' }" name="ПРО КУРС"/>
+    <SidebarNavigationLink :to="{ name: 'about-subject' }" name="ГОЛОВНА"/>
     <SidebarNavigationLink :to="{ name: 'about-programs' }" name="СЕРЕДОВИЩЕ РОЗРОБКИ"/>
 
       <v-expansion-panel class="app-navigation__items-group-wrapper" dark>
