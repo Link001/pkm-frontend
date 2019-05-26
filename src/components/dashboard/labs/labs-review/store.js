@@ -43,6 +43,15 @@ export const labsReviewStore = {
     getters: {
         findUserLabs({ labsReviews }) {
             return uid => labsReviews.find(review => review.user.uid === uid)
+        },
+
+        findUserLab({labsReviews}, { findUserLabs }) {
+            return (uid, labId) => {
+                const userLabs = findUserLabs(uid);
+                if (!userLabs) return null;
+
+                return  userLabs.labs.find(review => review.lab.id === labId);
+            }
         }
     }
 };

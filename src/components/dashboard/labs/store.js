@@ -26,9 +26,7 @@ export const labsStore = {
             dispatch(labsActions.uploadCompletedTask, file).then(({ downloadUrl }) => {
                 const userId = rootState.user.current.uid;
 
-                Database.instance.push(`labs-reviews/${userId}/labs/${lab.id}`, {
-                    completedTaskUrl: downloadUrl
-                })
+                Database.instance.update(`labs-reviews/${userId}/labs/${lab.id}`, {reportUrl: downloadUrl })
             });
         },
 

@@ -10,13 +10,11 @@ export class UserLabs {
     }
 
     static fromDatabaseSnapshot(snapshot) {
-        return Database.instance.get(`users/${snapshot.key}`)
-            .then(user => User.fromDatabaseSnapshot(user))
-            .then(user => {
-                const labsSnapshot = snapshot.child('labs');
-                return LabReview.fromDatabaseArraySnapshot(labsSnapshot)
-                    .then(labs => new UserLabs({user, labs}));
-            })
+        return Promise.all([
+            Database.instance.get(`users/${snapshot.key}`).then(user => User.fromDatabaseSnapshot(user)),
+            LabReview.fromDatabaseArraySnapshot(snapshot.child('labs'))
+        ])
+            .then(([user, labs]) => new UserLabs({user, labs}));
     }
 
     static fromDatabaseArraySnapshot(snapshot) {

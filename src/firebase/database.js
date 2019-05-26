@@ -12,6 +12,10 @@ export class Database extends FirebaseModule {
         return this.database.ref(path).push(payload);
     }
 
+    update(path, payload) {
+        return this.database.ref(path).update(payload);
+    }
+
     listen(path, listener) {
         this.database.ref(path).on('value', listener)
     }

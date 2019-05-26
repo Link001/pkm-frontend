@@ -1,6 +1,7 @@
 <template>
-  <main>
-    <UserLabsItem v-for="review of userLabs" :key="review.lab.id" :review="review" :uid="uid" class="full-width"/>
+  <main v-if="userLabs">
+    <h1 class="mt-0" >{{ userLabs.user.name }}:</h1>
+    <UserLabsItem v-for="review of userLabs.labs" :key="review.lab.id" :review="review" :uid="uid" class="full-width"/>
   </main>
 </template>
 
@@ -21,8 +22,7 @@
 
     computed: {
       userLabs() {
-        const userLabs = this.$store.getters.findUserLabs(this.uid);
-        return userLabs ? userLabs.labs : [];
+        return this.$store.getters.findUserLabs(this.uid);
       }
     }
   }
