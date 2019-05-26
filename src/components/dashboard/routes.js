@@ -1,10 +1,10 @@
 import AboutSubject from './AboutSubject';
 import AboutPrograms from './about-programs/AboutPrograms';
 import Dashboard from './Dashboard';
-import EducationMaterials from "./EducationMaterials";
 import Contact from "./Contact";
+import Labs from './Labs';
+import Lectures from './Lectures';
 import {unAuthGuard} from "./un-auth-guard";
-import Educatio from "./Educatio";
 
 export const dashboardRoutes = {
     path: '/dashboard',
@@ -24,21 +24,21 @@ export const dashboardRoutes = {
         },
 
         {
-            name: 'education-materials',
-            path: 'education-materials',
-            component: EducationMaterials,
+            name: 'labs',
+            path: 'labs',
+            component: Labs,
+        },
+
+        {
+            name: 'lectures',
+            path: 'lectures',
+            component: Lectures
         },
 
         {
             name: 'contact',
             path: 'contact',
             component: Contact
-        },
-
-        {
-          name: 'educatio',
-          path: 'educatio',
-          component: Educatio
         }
     ],
     beforeEnter: unAuthGuard
