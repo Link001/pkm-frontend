@@ -1,6 +1,8 @@
 <template>
-  <li>
+  <li class="list-link">
+    <slot name="prepend"/>
     <a :target="target" :title="name" :href="destination">{{ name }}</a>
+    <slot name="append"/>
   </li>
 </template>
 
@@ -33,3 +35,10 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  .list-link {
+    display: flex;
+    align-items: center;
+  }
+</style>

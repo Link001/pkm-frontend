@@ -2,7 +2,7 @@ import AboutSubject from './AboutSubject';
 import AboutPrograms from './about-programs/AboutPrograms';
 import Dashboard from './Dashboard';
 import Contact from "./Contact";
-import Labs from './labs/Labs';
+import Labs from './labs/labs-list/Labs';
 import Lectures from './Lectures';
 import LabsReview from './labs/LabsReview';
 import {unAuthGuard} from "./guard/un-auth-guard";
