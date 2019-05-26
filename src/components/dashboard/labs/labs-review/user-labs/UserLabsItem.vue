@@ -1,5 +1,5 @@
 <template>
-  <v-btn class="ma-0">{{ review.lab.name }}</v-btn>
+  <v-btn :to="reviewPath" class="ma-0">{{ review.lab.name }}</v-btn>
 </template>
 
 <script>
@@ -12,6 +12,23 @@
       review: {
         type: LabReview,
         required: true
+      },
+
+      uid: {
+        type: String,
+        required: true
+      }
+    },
+
+    computed: {
+      reviewPath() {
+        return {
+          name: 'lab-review',
+          params: {
+            uid: this.uid,
+            labId: this.review.lab.id
+          }
+        }
       }
     }
   }

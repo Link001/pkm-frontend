@@ -1,6 +1,6 @@
 <template>
   <main>
-    <UserLabsItem v-for="review of userLabs" :key="review.lab.id" :review="review" class="full-width"/>
+    <UserLabsItem v-for="review of userLabs" :key="review.lab.id" :review="review" :uid="uid" class="full-width"/>
   </main>
 </template>
 

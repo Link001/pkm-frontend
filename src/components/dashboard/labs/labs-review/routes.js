@@ -2,6 +2,7 @@ import {notTeacherGuard} from "../../guard/not-teacher-guard";
 import LabsReview from './LabsReview';
 import UsersList from "./users-list/UsersList";
 import UserLabs from "./user-labs/UserLabs";
+import LabReview from "./LabReview";
 
 export const labsReviewRoutes = {
     path: 'teacher/labs-review',
@@ -16,8 +17,15 @@ export const labsReviewRoutes = {
 
         {
             name: 'user-labs',
-            path: 'labs/:uid',
+            path: 'users/:uid',
             component: UserLabs,
+            props: true
+        },
+
+        {
+            name: 'lab-review',
+            path: 'users/:uid/labs/:labId',
+            component: LabReview,
             props: true
         }
     ]
