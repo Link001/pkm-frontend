@@ -1,10 +1,12 @@
 import {auth} from "firebase/app";
 import 'firebase/auth'
 import {User} from "../models/user";
-import {database} from "../firebase";
+import {Database} from "./database";
+import {FirebaseModule} from "./firebase-module";
 
-export class Auth {
+export class Auth extends FirebaseModule{
     constructor() {
+        super();
         this.auth = auth();
     }
 
@@ -30,7 +32,7 @@ export class Auth {
     }
 
     fetchUserInformation(user) {
-        return database.get(`users/${user.uid}`)
+        return Database.instance.get(`users/${user.uid}`)
             .then((snapshot) => User.fromDatabaseSnapshot(snapshot));
     }
 

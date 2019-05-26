@@ -12,5 +12,5 @@ initializeApp({
     appId: "1:575259586868:web:eadae60bd4ea16cd"
 });
 
-export const auth = new Auth();
-export const database = new Database();
+Auth.initialize();
+Database.initialize();

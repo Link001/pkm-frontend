@@ -1,8 +1,10 @@
 import {database} from "firebase/app";
 import 'firebase/database'
+import {FirebaseModule} from "./firebase-module";
 
-export class Database {
+export class Database extends FirebaseModule {
     constructor() {
+        super();
         this.database = database();
     }
 
