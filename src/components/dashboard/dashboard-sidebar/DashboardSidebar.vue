@@ -1,19 +1,25 @@
 <template>
   <nav class="app-navigation">
     <SidebarNavigationLink :to="{ name: 'about-subject' }" name="ГОЛОВНА"/>
+
     <SidebarNavigationLink :to="{ name: 'about-programs' }" name="СЕРЕДОВИЩЕ РОЗРОБКИ"/>
 
-      <v-expansion-panel class="app-navigation__items-group-wrapper" dark>
-        <v-expansion-panel-content class="app-navigation__expand-item transparent">
-          <template slot="header">НАВЧАЛЬНІ МАТЕРІАЛИ</template>
+    <v-expansion-panel class="app-navigation__items-group-wrapper" dark>
+      <v-expansion-panel-content class="app-navigation__expand-item transparent">
+        <template slot="header">НАВЧАЛЬНІ МАТЕРІАЛИ</template>
 
-          <div class="paddings--xs paddings-top--none">
-            <SidebarNavigationLink :to="{name: 'lectures'}" name="ЛЕКЦІЇ"/>
-            <SidebarNavigationLink :to="{name: 'labs'}" name="ЛАБОРАТОРНІ РОБОТИ"/>
-          </div>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
+        <div class="paddings-bottom--xs">
+          <SidebarNavigationLink class="paddings-left--sm" :to="{name: 'lectures'}" name="ЛЕКЦІЇ"/>
+
+          <SidebarNavigationLink class="paddings-left--sm" :to="{name: 'labs'}" name="ЛАБОРАТОРНІ РОБОТИ"/>
+        </div>
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+
+    <SidebarNavigationLink v-if="isTeacherMode" :to="{ name: 'labs-review' }" name="ВИКОНАНІ ЛАБОРАТОРНІ РОБОТИ"/>
+
     <SidebarNavigationLink :to="{name: 'contact'}" name="КОНТАКТИ"/>
+
     <button class="app-navigation__sign-out paddings--xs" type="button" @click="signOut">ВИЙТИ</button>
   </nav>
 </template>
@@ -30,6 +36,12 @@
     methods: {
       signOut() {
         this.$store.dispatch(authActions.signOut);
+      }
+    },
+
+    computed: {
+      isTeacherMode() {
+        return this.$store.state.auth.user.role.isTeacher
       }
     }
   }

@@ -5,6 +5,6 @@ import {routerStore} from "./router/store";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-    modules: { authStore, routerStore }
+export const store = new Vuex.Store({
+    modules: { auth: authStore, router: routerStore }
 });

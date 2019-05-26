@@ -1,6 +1,7 @@
 import {database, auth, initializeApp} from 'firebase/app';
 import 'firebase/database';
 import 'firebase/auth';
+import {User} from "./models/user";
 
 export function initializeFirebase() {
     initializeApp({
@@ -55,10 +56,13 @@ export class Auth {
     }
 
     static fetchUserInformation(user) {
-        return Database.get(`users/${user.uid}`).then((snapshot) => ({
-            uid: user.uid,
-            name: snapshot.child('name').val()
-        }));
+        return Database.get(`users/${user.uid}`).then((snapshot) => {
+            return new User({
+                uid: user.uid,
+                name: snapshot.child('name').val(),
+                role: snapshot.child('role').val()
+            })
+        });
     }
 
     static signOut() {

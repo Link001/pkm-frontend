@@ -1,4 +1,4 @@
-import store from "../../store";
+import { store } from "../../store";
 import {authActions} from "./auth-actions";
 
 export function authGuard(from, to, next) {

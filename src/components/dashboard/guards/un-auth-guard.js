@@ -1,5 +1,5 @@
-import store from '../../store';
-import {authActions} from "../auth/auth-actions";
+import { store } from '../../../store';
+import {authActions} from "../../auth/auth-actions";
 
 export function unAuthGuard(from, to, next) {
     if (store.getters.isAuthenticated) return next();

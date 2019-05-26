@@ -4,7 +4,9 @@ import Dashboard from './Dashboard';
 import Contact from "./Contact";
 import Labs from './Labs';
 import Lectures from './Lectures';
-import {unAuthGuard} from "./un-auth-guard";
+import LabsReview from './LabsReview';
+import {unAuthGuard} from "./guards/un-auth-guard";
+import {notTeacherGuard} from "./guards/not-teacher-guard";
 
 export const dashboardRoutes = {
     path: '/dashboard',
@@ -33,6 +35,13 @@ export const dashboardRoutes = {
             name: 'lectures',
             path: 'lectures',
             component: Lectures
+        },
+
+        {
+            name: 'labs-review',
+            path: 'teacher/labs-review',
+            component: LabsReview,
+            beforeEnter: notTeacherGuard
         },
 
         {
