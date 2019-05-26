@@ -4,14 +4,15 @@
     <a class="block" target="_blank" :href="review.lab.taskDocumentUrl">Файл з завданням</a>
     <a class="block" target="_blank" :href="review.reportUrl">Файл з виконаним завданням</a>
 
-    <div v-for="comment of review.comments">{{comment}}</div>
+    <LabReviewComments :comments="review.comments" :comments-path="commentsPath"/>
   </main>
 </template>
 
 <script>
+  import LabReviewComments from "../lab-review/LabReviewComments";
   export default {
     name: "LabReview",
-
+    components: {LabReviewComments},
     props: {
       uid: {
         type: String,
@@ -26,6 +27,10 @@
     computed: {
       review() {
         return this.$store.getters.findUserLab(this.uid, this.labId);
+      },
+
+      commentsPath() {
+        return `labs-reviews/${this.uid}/labs/${this.labId}/comments`
       }
     }
   }

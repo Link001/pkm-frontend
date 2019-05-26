@@ -11,7 +11,7 @@ export class ReviewComment {
     static fromDatabaseSnapshot(snapshot) {
         const uid = snapshot.child('uid').val();
 
-        return Database.get(`/users/${uid}`).then(user => new ReviewComment({
+        return Database.instance.get(`/users/${uid}`).then(user => new ReviewComment({
             user,
             text: snapshot.child('text'),
             date: snapshot.child('date')

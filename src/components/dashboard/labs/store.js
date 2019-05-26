@@ -3,13 +3,17 @@ import {Database} from "../../../firebase/database";
 import {Lab} from "../../../models/lab";
 import {Storage} from "../../../firebase/storage";
 import {labsReviewStore} from "./labs-review/store";
+import {labReviewCommentsStore} from "./lab-review/lab-review-comments-store";
 
 const mutations = {
     set: '[LABS] Set'
 };
 
 export const labsStore = {
-    modules: { reviews: labsReviewStore },
+    modules: {
+        reviews: labsReviewStore,
+        reviewComments: labReviewCommentsStore
+    },
 
     state: {
         labs: []
