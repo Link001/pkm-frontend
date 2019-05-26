@@ -2,11 +2,12 @@ import AboutSubject from './AboutSubject';
 import AboutPrograms from './about-programs/AboutPrograms';
 import Dashboard from './Dashboard';
 import Contact from "./Contact";
-import Labs from './Labs';
+import Labs from './labs/Labs';
 import Lectures from './Lectures';
-import LabsReview from './LabsReview';
-import {unAuthGuard} from "./guards/un-auth-guard";
-import {notTeacherGuard} from "./guards/not-teacher-guard";
+import LabsReview from './labs/LabsReview';
+import {unAuthGuard} from "./guard/un-auth-guard";
+import {notTeacherGuard} from "./guard/not-teacher-guard";
+import {loadLabsResolver} from "./labs/load-labs-resolver";
 
 export const dashboardRoutes = {
     path: '/dashboard',
@@ -24,26 +25,23 @@ export const dashboardRoutes = {
             component: AboutPrograms,
             name: 'about-programs'
         },
-
         {
             name: 'labs',
             path: 'labs',
             component: Labs,
+            beforeEnter: loadLabsResolver
         },
-
         {
             name: 'lectures',
             path: 'lectures',
             component: Lectures
         },
-
         {
             name: 'labs-review',
             path: 'teacher/labs-review',
             component: LabsReview,
             beforeEnter: notTeacherGuard
         },
-
         {
             name: 'contact',
             path: 'contact',

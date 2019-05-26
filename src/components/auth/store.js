@@ -6,8 +6,8 @@ const mutations = {
     setUser: "[AUTH] Set User"
 };
 
-export const authStore = {
-    state: { user: null },
+export const userStore = {
+    state: { current: null },
 
     actions: {
         [authActions.signIn]({ dispatch }, { email, password }) {
@@ -38,11 +38,11 @@ export const authStore = {
 
     mutations: {
         [mutations.setUser](state, user) {
-            state.user = user;
+            state.current = user;
         }
     },
 
     getters: {
-        isAuthenticated: ({ user }) => !!user
+        isAuthenticated: ({ current }) => !!current
     }
 };

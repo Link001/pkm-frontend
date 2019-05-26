@@ -1,10 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {authStore} from "./components/auth/store";
+import {userStore} from "./components/auth/store";
 import {routerStore} from "./router/store";
+import {labsStore} from "./components/dashboard/labs/store";
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-    modules: { auth: authStore, router: routerStore }
+    modules: {
+        user: userStore,
+        router: routerStore,
+        labs: labsStore
+    }
 });

@@ -41,7 +41,7 @@
 
     computed: {
       isTeacherMode() {
-        return this.$store.state.auth.user.role.isTeacher
+        return this.$store.state.user.current.role.isTeacher
       }
     }
   }
