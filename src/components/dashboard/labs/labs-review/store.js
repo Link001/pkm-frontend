@@ -17,7 +17,7 @@ export const labsReviewStore = {
         [labsReviewsActions.listenChanges]({commit}) {
             function onChanged(snapshot) {
                 UserLabs.fromDatabaseArraySnapshot(snapshot).then(labsReviews => {
-                    commit(mutations.setLabsReview, labsReviews)
+                    commit(mutations.setLabsReview, labsReviews);
                 })
             }
             Database.instance.listen('labs-reviews', onChanged);
@@ -37,6 +37,12 @@ export const labsReviewStore = {
 
         [mutations.setLabsReview](state, labsReviews) {
             state.labsReviews = labsReviews;
+        }
+    },
+
+    getters: {
+        findUserLabs({ labsReviews }) {
+            return uid => labsReviews.find(review => review.user.uid === uid)
         }
     }
 };

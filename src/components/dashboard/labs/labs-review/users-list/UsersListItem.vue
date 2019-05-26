@@ -1,5 +1,5 @@
 <template>
-  <v-btn class="ma-0 user-list-item">
+  <v-btn :to="labsPath" class="ma-0 user-list-item">
     {{reviews.user.name}}
   </v-btn>
 </template>
@@ -14,6 +14,15 @@
       reviews: {
         type: UserLabs,
         required: true
+      }
+    },
+
+    computed: {
+      labsPath() {
+        return {
+          name: 'user-labs',
+          params: { uid: this.reviews.user.uid}
+        }
       }
     }
   }
