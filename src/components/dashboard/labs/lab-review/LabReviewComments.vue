@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="comment of comments">{{comment.text}}</div>
+    <div v-for="comment of comments">{{comment.user.name}}: {{comment.text}} {{comment.formattedDate}}</div>
     <div>
       <v-text-field v-model="newCommentText" label="Коммертар"/>
       <v-btn @click="sendNewComment">SEND</v-btn>

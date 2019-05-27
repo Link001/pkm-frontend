@@ -1,5 +1,6 @@
 <template>
   <main>
+    <h1 class="user-list__header">Список студентів із зданими лабораторними роботами</h1>
     <UsersListItem
       v-for="reviews of usersReviews"
       :key="reviews.user.uid"
@@ -21,6 +22,10 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+  .user-list__header{
+    font-size: 25px;
+  }
 
 </style>
