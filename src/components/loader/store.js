@@ -31,4 +31,8 @@ export const loaderStore = {
             state.queue = {...state.queue};
         }
     },
+
+    getters: {
+        isActiveLoader: ({ queue }) => !!Object.keys(queue).length
+    }
 };

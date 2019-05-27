@@ -1,7 +1,9 @@
 <template>
-  <div class="loader-overlay" v-if="isActive">
-    <v-progress-circular class="loader" indeterminate size="75" width="5" color="white"/>
-  </div>
+  <transition name="loader">
+    <div class="loader-overlay" v-show="isActive" :duration="150">
+      <v-progress-circular class="loader" indeterminate size="75" width="5" color="white"/>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -34,5 +36,13 @@
 
   .loader {
     margin: auto;
+  }
+
+  .loader-enter-active, .loader-leave-active {
+    transition: opacity .15s;
+  }
+
+  .loader-enter, .loader-leave-to {
+    opacity: 0;
   }
 </style>
