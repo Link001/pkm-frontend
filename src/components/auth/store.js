@@ -2,6 +2,7 @@ import { authActions } from "./auth-actions";
 import { Auth } from "../../firebase/auth";
 import {routerActions} from "../../router/router-actions";
 import {Storage} from "../../firebase/storage";
+import {loaderActions} from "../loader/loader-actions";
 
 const mutations = {
     setUser: "[AUTH] Set User"
@@ -12,9 +13,15 @@ export const userStore = {
 
     actions: {
         [authActions.signIn]({ dispatch }, { email, password }) {
+            const loaderKey = '[AUTH] Sign In';
+            dispatch(loaderActions.addToQueue, loaderKey);
+
             Auth.instance.signIn(email, password)
                 .then(({user: authUser}) => dispatch(authActions.getUser, authUser))
-                .then(() => dispatch(routerActions.toGo, { name: 'dashboard' }));
+                .then(() => {
+                    dispatch(routerActions.toGo, { name: 'dashboard' });
+                    dispatch(loaderActions.complete, loaderKey);
+                });
         },
 
         [authActions.autoSignIn]({ dispatch }) {

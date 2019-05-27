@@ -1,8 +1,10 @@
 <template>
   <main v-if="userLabs">
-    <h1 class="mt-0" >Виконані лабораторні робооти студента {{ userLabs.user.name }}:</h1>
+    <h1 class="mt-0">Виконані лабораторні робооти студента {{ userLabs.user.name }}:</h1>
     <h2>Список виконаних робіт:</h2>
-    <UserLabsItem v-for="review of userLabs.labs" :key="review.lab.id" :review="review" :uid="uid" class="full-width"/>
+    <div>
+      <UserLabsItem v-for="review of userLabs.labs" :key="review.lab.id" :review="review" :uid="uid" class="full-width"/>
+    </div>
   </main>
 </template>
 
