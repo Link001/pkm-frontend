@@ -1,6 +1,6 @@
 <template>
   <main v-if="review">
-    <h1>{{review.lab.name}}</h1>
+    <h1>Тема лабораторної роботи "{{review.lab.name}}"</h1>
     <a class="block" target="_blank" :href="review.lab.taskDocumentUrl">Файл з завданням</a>
     <a class="block" target="_blank" :href="review.reportUrl">Файл з виконаним завданням</a>
 

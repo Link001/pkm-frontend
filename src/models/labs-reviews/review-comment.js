@@ -1,5 +1,6 @@
 import {Database} from "../../firebase/database";
 import {databaseSnapshotToArray} from "../../helpers";
+import {User} from "../user";
 
 export class ReviewComment {
     constructor({ user, text, date }) {
@@ -8,13 +9,17 @@ export class ReviewComment {
         this.date = date;
     }
 
+    get formattedDate() {
+        return new Date(this.date).toLocaleString()
+    }
+
     static fromDatabaseSnapshot(snapshot) {
         const uid = snapshot.child('uid').val();
 
         return Database.instance.get(`/users/${uid}`).then(user => new ReviewComment({
-            user,
-            text: snapshot.child('text'),
-            date: snapshot.child('date')
+            user: User.fromDatabaseSnapshot(user),
+            text: snapshot.child('text').val(),
+            date: +snapshot.child('date').val()
         }))
     }
 
