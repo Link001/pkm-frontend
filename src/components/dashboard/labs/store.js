@@ -4,6 +4,7 @@ import {Lab} from "../../../models/lab";
 import {Storage} from "../../../firebase/storage";
 import {labsReviewStore} from "./labs-review/store";
 import {labReviewCommentsStore} from "./lab-review/lab-review-comments-store";
+import {loaderActions} from "../../loader/loader-actions";
 
 const mutations = {
     set: '[LABS] Set'
@@ -27,10 +28,15 @@ export const labsStore = {
         },
 
         [labsActions.completeTask]({ dispatch, rootState }, { file, lab }) {
+            const loaderKey = '[DASHBOARD:LABS] Complete Task';
+            dispatch(loaderActions.addToQueue, loaderKey);
+
             dispatch(labsActions.uploadCompletedTask, file).then(({ downloadUrl }) => {
                 const userId = rootState.user.current.uid;
 
-                Database.instance.update(`labs-reviews/${userId}/labs/${lab.id}`, {reportUrl: downloadUrl })
+                Database.instance
+                    .update(`labs-reviews/${userId}/labs/${lab.id}`, {reportUrl: downloadUrl })
+                    .then(() => dispatch(loaderActions.complete, loaderKey))
             });
         },
 

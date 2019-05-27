@@ -1,15 +1,23 @@
 <template>
-  <transition name="router" mode="out-in">
-    <router-view class="app"/>
-  </transition>
+  <div class="app">
+    <Loader/>
+    <transition name="router" mode="out-in">
+      <router-view class="app__page"/>
+    </transition>
+  </div>
 </template>
 
 <script>
-  export default { name: 'App' }
+  import Loader from "./components/loader/Loader";
+
+  export default {
+    name: 'App',
+    components: {Loader}
+  }
 </script>
 
 <style lang="scss" scoped>
-  .app {
+  .app, .app__page {
     height: 100%;
   }
 </style>

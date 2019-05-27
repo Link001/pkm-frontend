@@ -1,7 +1,16 @@
 import { store } from '../../../store';
+import {loaderActions} from "../../loader/loader-actions";
 
 export function notTeacherGuard(from, to, next) {
-    if (store.state.user.current.role.isTeacher) return next();
+    const loaderKey = '[DASHBOARD:TEACHER] Is Teacher?';
 
-    next({ name: 'dashboard' });
+    store.dispatch(loaderActions.addToQueue, loaderKey);
+
+    function complete(route) {
+        store.dispatch(loaderActions.complete, loaderKey);
+        next(route);
+    }
+    if (store.state.user.current.role.isTeacher) return complete();
+
+    complete({ name: 'dashboard' });
 }
